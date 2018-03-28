@@ -12,7 +12,7 @@ import java.sql.Timestamp
 
 object combineData extends App {
   
-  val start = DateTime.now.minusDays(6)
+  val start = DateTime.now.minusDays(10)
   val end   = DateTime.now.plusDays(0)
 
   val daysCount = Days.daysBetween(start, end).getDays() + 1
