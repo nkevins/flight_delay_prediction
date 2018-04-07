@@ -57,7 +57,7 @@ object parseWeather extends App {
     
     val metarTuple = parsedMetar.map(x => {
       try {
-        val reportTime = date.toString("yyyy-MM-") + x.getReportTime.getDayOfMonth + " " + String.format("%02d", x.getReportTime.getHour) + ":" + String.format("%02d", x.getReportTime.getMinute) + ":00";
+        val reportTime = date.toString("yyyy-MM-") + String.format("%02d", x.getReportTime.getDayOfMonth) + " " + String.format("%02d", x.getReportTime.getHour) + ":" + String.format("%02d", x.getReportTime.getMinute) + ":00";
         
         val pw = x.getPresentWeather.toList
         (reportTime, x.getWind.getWindSpeed, x.getWind.getWindSpeedGusts, x.getTemperatureAndDewPoint.getTemperature, x.getVisibility.get(0).getVisibility, findWeatherIntensity(pw), findWeatherPrecipitation(pw, "RA"), findWeatherDescriptor(pw, "TS"), findWeatherDescriptor(pw, "SH"), findWeatherObscuration(pw, "BR"), findWeatherObscuration(pw, "FG"), findWeatherObscuration(pw, "HZ"))
